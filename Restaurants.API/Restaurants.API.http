@@ -1,0 +1,36 @@
+@Restaurants.API_HostAddress = https://localhost:7123
+
+###
+GET {{Restaurants.API_HostAddress}}/api/restaurants/
+
+###
+
+GET {{Restaurants.API_HostAddress}}/api/restaurants/9
+
+###
+POST {{Restaurants.API_HostAddress}}/api/restaurants/
+Content-type: application/json; charset=utf-8
+Accept: application/json
+
+{
+ "Name": "Extra sweet Namkeen",
+ "Category": "Indian",
+ "Description": "Extra sweet Namkeen tasty",
+ "ContactEmail": "test5@email.com",
+ "City" : "Bihar"
+}
+
+###
+
+
+DELETE {{Restaurants.API_HostAddress}}/api/restaurants/10
+
+###
+PATCH {{Restaurants.API_HostAddress}}/api/restaurants/11
+Content-Type: application/json
+
+{
+    "Name": "Extra sweet poha",
+    "Description": "Extra sweet poha tasty",
+    "HasDelivery": true
+}
