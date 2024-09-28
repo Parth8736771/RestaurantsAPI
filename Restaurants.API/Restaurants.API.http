@@ -5,7 +5,13 @@ GET {{Restaurants.API_HostAddress}}/api/restaurants/
 
 ###
 
-GET {{Restaurants.API_HostAddress}}/api/restaurants/13
+GET {{Restaurants.API_HostAddress}}/api/restaurants/5
+###
+GET {{Restaurants.API_HostAddress}}/api/restaurants/6/dishes/
+###
+GET {{Restaurants.API_HostAddress}}/api/restaurants/6/dishes/8
+
+
 
 ###
 POST {{Restaurants.API_HostAddress}}/api/restaurants/
@@ -19,11 +25,24 @@ Accept: application/json
  "ContactEmail": "test5@email.com",
  "City" : "Bihar"
 }
+###
+POST {{Restaurants.API_HostAddress}}/api/restaurants/6/dishes
+Content-type: application/json; charset=utf-8
+Accept: application/json
+{
+    "Name" : "Samosa special",
+    "Description" : " Paneer made samosa spicy",
+    "Price" : 45.25,
+    "KiloCalories" : 22
+}
+
 
 ###
-
-
 DELETE {{Restaurants.API_HostAddress}}/api/restaurants/10
+###
+DELETE {{Restaurants.API_HostAddress}}/api/restaurants/6/dishes/
+
+
 
 ###
 PATCH {{Restaurants.API_HostAddress}}/api/restaurants/11

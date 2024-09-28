@@ -1,6 +1,5 @@
 using Restaurants.API.Middlewares;
 using Restaurants.Application.Extensions;
-using Restaurants.Domain.Exceptions;
 using Restaurants.Infrastructure.Extensions;
 using Restaurants.Infrastructure.Seeders;
 using Serilog;
