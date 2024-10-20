@@ -1,7 +1,10 @@
 @Restaurants.API_HostAddress = https://localhost:7123
+@token = CfDJ8ECy0YONWbVMiS2uquf0HFzqog1wJcXcN8LJLGdZu-mr-LIKOqLUtTROMRA_aBXHrR8gbBqN0YGAjP5JLL5BaNtxsOfWazbF-2KSdhuWTX6Tzo30RddYleZASLu_sX-X7sSdCwpILlI70w29sLx6Vv6fJxWZt2cO5e8n9S0ie2n9Lw68iYzC_LSRGLxQjc13IUYZ39wWBgNYoPf6oToYef8LZeL23ZhsRCkNbYGZK6Ksh4ZvlPlKVvtxRH2ZozGIc5Dv8xQQComVlVvETkUO-ebnOr6xq7iNbDMh7fqN23IH6Fy4CERUuxfeEgoiHcOfnNfBO767ys1wt2fvIyzqAFfehBaRlvv8Vsp4L9cjqoTFhzRJMXuHVBXbtAHqIn8H9DZm66xJ5GY8t8lv6hImGaMM3cZ6QR1H8Px16suqtk-pG3bm2Pi2z8zrRhWBwz8SzGwxhreFzql_rx8CJGJK0kXwpVd1LHjc0ahXaDPNtJ-hE8wUbAvXRlkZ8YYONEXd4BofAO-3T8WBdpV1x20Oo5dJGDcQGF77CuqEi3t1o9Cb_tNsuW-L_aFolLOc3oAEpdMPHZPQE3m4yKubRrr2m_11UtGqwdXIPKiJuvrx45pgtWD7hJOO0dILSBXD7EBFyVkp8ftsWjJeeAZwGfOAnGCFP4YrswqVW16bKLjnnEEO9mNAzaxeV3SVHXZWk7QsYg
+
 
 ###
 GET {{Restaurants.API_HostAddress}}/api/restaurants/
+Authorization: Bearer {{token}}
 
 ###
 
@@ -53,3 +56,22 @@ Content-Type: application/json
     "Description": "Extra sweet poha tasty",
     "HasDelivery": true
 }
+
+###
+
+POST {{Restaurants.API_HostAddress}}/api/identity/register
+Content-Type: application/json
+{
+    "email": "testuser2@test.com",
+    "password": "P@ssword1!"
+}
+
+###
+POST {{Restaurants.API_HostAddress}}/api/identity/login
+Content-Type: application/json
+{
+    "email": "testuser@test.com",
+    "password": "P@ssword1!"
+}
+
+

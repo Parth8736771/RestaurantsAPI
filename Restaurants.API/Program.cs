@@ -1,5 +1,7 @@
+using Restaurants.API.Extensions;
 using Restaurants.API.Middlewares;
 using Restaurants.Application.Extensions;
+using Restaurants.Domain.Entities;
 using Restaurants.Infrastructure.Extensions;
 using Restaurants.Infrastructure.Seeders;
 using Serilog;
@@ -8,24 +10,17 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
-builder.Services.AddSwaggerGen();
-
-builder.Services.AddScoped<ErrorHandlingMiddleware>();
-builder.Services.AddScoped<RequestTimeLoggingMiddleware>();
+builder.AddPresentation();
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 
-builder.Host.UseSerilog((context, configuration) =>
-    configuration
-    .ReadFrom.Configuration(context.Configuration)
+
 
 // configuration
 //.MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
 //.MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Information)
 //WriteTo.File("Logs/Restaurant-API-.log", rollingInterval: RollingInterval.Day, rollOnFileSizeLimit: true)
 //.WriteTo.Console(outputTemplate: "[{Timestamp: ddMM HH:mm:ss} {Level:u3}] | {SourceContext} | {NewLine} {Message:lj}{NewLine}{Exception}")
-);
 
 var app = builder.Build();
 
@@ -48,6 +43,7 @@ if (app.Environment.IsDevelopment())
 app.UseSerilogRequestLogging();
 
 app.UseHttpsRedirection();
+app.MapGroup("api/identity").MapIdentityApi<User>();
 
 app.UseAuthorization();
 
