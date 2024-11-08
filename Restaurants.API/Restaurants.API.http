@@ -1,33 +1,36 @@
 @Restaurants.API_HostAddress = https://localhost:7123
-@token = CfDJ8ECy0YONWbVMiS2uquf0HFzqog1wJcXcN8LJLGdZu-mr-LIKOqLUtTROMRA_aBXHrR8gbBqN0YGAjP5JLL5BaNtxsOfWazbF-2KSdhuWTX6Tzo30RddYleZASLu_sX-X7sSdCwpILlI70w29sLx6Vv6fJxWZt2cO5e8n9S0ie2n9Lw68iYzC_LSRGLxQjc13IUYZ39wWBgNYoPf6oToYef8LZeL23ZhsRCkNbYGZK6Ksh4ZvlPlKVvtxRH2ZozGIc5Dv8xQQComVlVvETkUO-ebnOr6xq7iNbDMh7fqN23IH6Fy4CERUuxfeEgoiHcOfnNfBO767ys1wt2fvIyzqAFfehBaRlvv8Vsp4L9cjqoTFhzRJMXuHVBXbtAHqIn8H9DZm66xJ5GY8t8lv6hImGaMM3cZ6QR1H8Px16suqtk-pG3bm2Pi2z8zrRhWBwz8SzGwxhreFzql_rx8CJGJK0kXwpVd1LHjc0ahXaDPNtJ-hE8wUbAvXRlkZ8YYONEXd4BofAO-3T8WBdpV1x20Oo5dJGDcQGF77CuqEi3t1o9Cb_tNsuW-L_aFolLOc3oAEpdMPHZPQE3m4yKubRrr2m_11UtGqwdXIPKiJuvrx45pgtWD7hJOO0dILSBXD7EBFyVkp8ftsWjJeeAZwGfOAnGCFP4YrswqVW16bKLjnnEEO9mNAzaxeV3SVHXZWk7QsYg
+@token = CfDJ8ECy0YONWbVMiS2uquf0HFyGn0WdjenWQ7UBXhBwyDPdaryYH42HDomRyC1k7TqUdOVBCfN4T2MHqkBQt2qH8EoRcoOIyooXT7RM8_Ywd0_hKelRb7MzjMfmr1_YxUW839wI9JeEcTItpU6qMfFjafab0aLK2gXYsEX6IVqTVJoyLIMv9ClJWpkqthHCWhdBd828pLp1YAbf-vaen5JCwg8fjzm217GlJ5Zt-T8bRHVBFyeoirPAVB5Slc8INFT7ILN-4N7rigsd3k-rFGKm8RcE_P-hMIpxmkutxbzmcFQGb5vzdtwPbzeOoff0Jc3aHqJt0I-vRuCU_d51eN4eHF0awCNH7qjBs7OudmYflw7L6DyBwunPcj0Ivab15v9sErtfs0W_k5wYA8irqbzVns8BbZ-lp7OCHKlm9dyU-_pUPwf3xeR4DHzMtUV1w6zAgoXsXOo8z2b7AyHBO0Za0yvt0eN6u2LnpxZUfFiOlZMIeruQ6nV9Mu2t6CGRdlN9BuKEOtUVE3PGlJS0GuPrjQ_vpW9G8JDyrnt8OJvQHc3vZ-us8TNKkJC1p-gyu3Kbv5S3vpMM89jOiy47jS0Idx9nOe-W4BilfojBvTiU5o-33UVvZhUjYSebvQkk3Gpc0LzuoyX2yKxz2GFjCorT131iKNof6g7HhmFeQa13ohyvMJJD0StMyeoWqOZVuaNDiFZtsjfL7d83YFljsrIE2Jnqv-Bdfex4SaICOoTPEdkc93_D4FtWXwadzK0rDP1c2C5qrsxIxgKxuqn69Lrag8M_7Bsn-aOP-r8Iros_dnTH
+
 
 
 ###
-GET {{Restaurants.API_HostAddress}}/api/restaurants/
+GET {{Restaurants.API_HostAddress}}/api/restaurants?searchPhrase=&pageNumber=1&pageSize=10&sortBy=Name
 Authorization: Bearer {{token}}
 
 ###
-
 GET {{Restaurants.API_HostAddress}}/api/restaurants/5
+Authorization: Bearer {{token}}
+
 ###
 GET {{Restaurants.API_HostAddress}}/api/restaurants/6/dishes/
+Authorization: Bearer {{token}}
+
 ###
 GET {{Restaurants.API_HostAddress}}/api/restaurants/6/dishes/8
-
-
 
 ###
 POST {{Restaurants.API_HostAddress}}/api/restaurants/
 Content-type: application/json; charset=utf-8
 Accept: application/json
-
+Authorization: Bearer {{token}}
 {
- "Name": "Extra sweet Namkeen",
- "Category": "Indian",
- "Description": "Extra sweet Namkeen tasty",
- "ContactEmail": "test5@email.com",
- "City" : "Bihar"
+ "Name": "owner2 restaurants-2 added ",
+ "Category": "Australian",
+ "Description": "owner2 restaurant-2 tasty",
+ "ContactEmail": "test9@email.com",
+ "City" : "Gandhinagar"
 }
+
 ###
 POST {{Restaurants.API_HostAddress}}/api/restaurants/6/dishes
 Content-type: application/json; charset=utf-8
@@ -41,18 +44,19 @@ Accept: application/json
 
 
 ###
-DELETE {{Restaurants.API_HostAddress}}/api/restaurants/10
+DELETE {{Restaurants.API_HostAddress}}/api/restaurants/16
+Authorization: Bearer {{token}}
 ###
 DELETE {{Restaurants.API_HostAddress}}/api/restaurants/6/dishes/
 
 
 
 ###
-PATCH {{Restaurants.API_HostAddress}}/api/restaurants/11
+PATCH {{Restaurants.API_HostAddress}}/api/restaurants/16
 Content-Type: application/json
-
+Authorization: Bearer {{token}}
 {
-    "Name": "Extra sweet poha",
+    "Name": "Updated mild namkeen",
     "Description": "Extra sweet poha tasty",
     "HasDelivery": true
 }
@@ -62,7 +66,7 @@ Content-Type: application/json
 POST {{Restaurants.API_HostAddress}}/api/identity/register
 Content-Type: application/json
 {
-    "email": "testuser2@test.com",
+    "email": "owner2@test.com",
     "password": "P@ssword1!"
 }
 
@@ -70,8 +74,28 @@ Content-Type: application/json
 POST {{Restaurants.API_HostAddress}}/api/identity/login
 Content-Type: application/json
 {
-    "email": "testuser@test.com",
+    "email": "owner2@test.com",
     "password": "P@ssword1!"
 }
 
+###
+PATCH {{Restaurants.API_HostAddress}}/api/identity/user
+Authorization: Bearer {{token}}
+Content-Type: application/json
+{
+    "Nationality": "German",
+    "DateOfBirth": "1998-03-12"
+}
 
+###
+
+
+POST {{Restaurants.API_HostAddress}}/api/identity/userRole
+Content-Type: application/json
+Authorization: Bearer {{token}}
+{
+  "UserEmail": "owner2@test.com",
+  "RoleName": "Owner"
+}
+
+###
