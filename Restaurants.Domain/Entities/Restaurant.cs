@@ -14,8 +14,9 @@
         public Address? Address { get; set; }
         public List<Dish> Dishes { get; set; } = [];
 
-        //public User Owner { get; set; } = default!;
-        //public string OwnerId { get; set; } = default!;
+        public User Owner { get; set; } = default!;
+        public string OwnerId { get; set; } = default!;
+
         //public string? LogoUrl { get; set; }
     }
 }
